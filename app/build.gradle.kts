@@ -58,6 +58,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(libs.firebase.bom)
+    // Firebase - Use platform() for BOM
+    implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
 }
