@@ -61,4 +61,8 @@ dependencies {
     // Firebase - Use platform() for BOM
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
+
+   //  Firebase Authentication (Email/Password)
+    implementation(libs.firebase.auth)
+
 }
