@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "463715601773",
+    "project_id": "sangefirebase",
+    "storage_bucket": "sangefirebase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463715601773:android:a28d2a655a2f0b44de5e64",
+        "android_client_info": {
+          "package_name": "com.practice.checkfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZH-y6rbmsQWRtffDrwC5ze41JgzazjFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463715601773:android:9ee72c1a7cfe1603de5e64",
+        "android_client_info": {
+          "package_name": "com.practice.firebasefeature"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZH-y6rbmsQWRtffDrwC5ze41JgzazjFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463715601773:android:c5eccdfe5468ebf6de5e64",
+        "android_client_info": {
+          "package_name": "com.practice.sangefirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZH-y6rbmsQWRtffDrwC5ze41JgzazjFc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
