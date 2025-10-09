@@ -9,6 +9,7 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
 composeBom = "2024.09.00"
+navigationCompose = "2.9.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +37,7 @@ firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 #firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseBom" }
 # NOW: Remove '-ktx' from the name (artifact)
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
