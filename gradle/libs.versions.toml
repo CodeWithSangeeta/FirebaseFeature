@@ -10,6 +10,8 @@ lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
 composeBom = "2024.09.00"
 navigationCompose = "2.9.5"
+firebaseCrashlyticsBuildtools = "3.0.6"
+runtimeLivedata = "1.9.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +40,8 @@ firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 # NOW: Remove '-ktx' from the name (artifact)
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
+androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

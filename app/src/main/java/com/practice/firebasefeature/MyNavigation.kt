@@ -9,12 +9,14 @@ import com.practice.firebase.routes
 import com.screens.EmailPasswordLogin
 import com.screens.EmailPasswordSignup
 import com.screens.GoogleSignIn
+import com.screens.HomeScreen
 import com.screens.OtpVerification
 import com.screens.WelcomeScreen
 
 @Composable
 fun MyNavigation(modifier: Modifier = Modifier, authViewModels: AuthViewModel) {
     val navController = rememberNavController()
+
         NavHost(navController = navController, startDestination = routes.WelcomeScreen, builder ={
             composable(routes.WelcomeScreen){
                 WelcomeScreen(modifier,navController,authViewModels)
@@ -24,6 +26,9 @@ fun MyNavigation(modifier: Modifier = Modifier, authViewModels: AuthViewModel) {
             }
             composable(routes.EmailPasswordSignup){
                 EmailPasswordSignup(modifier,navController,authViewModels)
+            }
+            composable(routes.HomeScreen){
+                HomeScreen(modifier,navController,authViewModels)
             }
             composable(routes.GoogleSignIn){
                 GoogleSignIn(modifier,navController,authViewModels)

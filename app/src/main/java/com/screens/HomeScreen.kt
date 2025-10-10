@@ -1,8 +1,6 @@
 package com.screens
 
-import android.graphics.Color
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -31,42 +29,47 @@ import com.practice.firebasefeature.AuthViewModel
 import com.practice.firebasefeature.R
 
 @Composable
-fun WelcomeScreen(
+fun HomeScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController,
     authViewModels: AuthViewModel
 ) {
-
     Column(
         modifier = Modifier.fillMaxSize()
-            .padding(34.dp),
-       // verticalArrangement = Arrangement.Center,
+            .padding(36.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Welcome to AuthFlow",
-            fontSize = 38.sp,
-            textAlign = TextAlign.Center,
+        Text(
+            text = "Home Screen",
+            fontSize = 42.sp,
+            textAlign = TextAlign.Start,
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily.Cursive
-            )
-        Spacer(modifier = Modifier.height(45.dp))
+        )
+
+
+        Spacer(modifier = Modifier.height(40.dp))
 
         Image(
-            painter = painterResource(id = R.drawable.welcome_screen_img),
-            contentDescription = "Welcome Image",
-                modifier = Modifier
-                    .size(300.dp)
-                    .clip(RoundedCornerShape(16.dp)),
-                contentScale = ContentScale.Crop
+            painter = painterResource(id = R.drawable.successfull_img),
+            contentDescription = "Successfull Image",
+            modifier = Modifier
+                .size(350.dp)
+                .clip(RoundedCornerShape(16.dp)),
+            contentScale = ContentScale.Crop
 
         )
 
-         Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(40.dp))
+
+
+
 
         Button(onClick = {
-            navController.navigate(routes.EmailPasswordLogin)
+            authViewModels.signout()
+           // navController.navigate(routes.EmailPasswordLogin)
         }){
-            Text(text = "Email & Password Login",
+            Text(text = "Sign Out",
                 modifier= Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
@@ -74,32 +77,18 @@ fun WelcomeScreen(
                 fontSize = 22.sp)
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier=Modifier.height(20.dp))
 
         Button(onClick = {
-            navController.navigate(routes.GoogleSignIn)
+            navController.navigate(routes.WelcomeScreen)
         }){
-            Text(text = "Google Sign In",
+            Text(text = "Back To Welcome Screen",
                 modifier= Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Cursive,
                 fontSize = 22.sp)
         }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(onClick = {
-            navController.navigate(routes.OtpVerification)
-        }){
-            Text(text = "OTP Verification",
-                modifier= Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Cursive,
-                fontSize = 22.sp)
-        }
-
     }
-
+    
 }

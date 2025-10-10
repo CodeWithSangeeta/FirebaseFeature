@@ -17,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -27,6 +28,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.practice.firebase.routes
+import com.practice.firebasefeature.AuthState
 import com.practice.firebasefeature.AuthViewModel
 import com.practice.firebasefeature.R
 
@@ -54,30 +57,31 @@ fun EmailPasswordLogin(
     var password by remember { mutableStateOf("") }
 
 
-//    val authSate = authViewModel.authState.observeAsState()
-//    val context = LocalContext.current
-//
-//    LaunchedEffect(authSate.value){
-//        when(authSate.value){
-//            is AuthState.Authenticated ->  navController.navigate(routes.HomePage)
-//            is AuthState.Error -> Toast.makeText(context,
-//                (authSate.value as AuthState.Error).message, Toast.LENGTH_SHORT).show()
-//            else -> Unit
-//        }
-//    }
+    val authSate = authViewModels.authState.observeAsState()
+    val context = LocalContext.current
+
+    LaunchedEffect(authSate.value){
+        when(authSate.value){
+            is AuthState.Authenticated ->  navController.navigate(routes.HomeScreen)
+            is AuthState.Error -> Toast.makeText(context,
+                (authSate.value as AuthState.Error).message, Toast.LENGTH_SHORT).show()
+            else -> Unit
+        }
+    }
 
 
     Column(
         modifier = Modifier.fillMaxSize()
             .padding(32.dp),
-        verticalArrangement = Arrangement.Center,
+        //verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Email & Password Login",
-            fontSize = 26.sp,
+            fontSize = 34.sp,
             textAlign = TextAlign.Start,
             fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.SansSerif
+            fontFamily = FontFamily.Cursive,
+
         )
 
 
@@ -87,7 +91,7 @@ fun EmailPasswordLogin(
             painter = painterResource(id = R.drawable.login_screen_img),
             contentDescription = "Login Image",
             modifier = Modifier
-                .size(250.dp)
+                .size(300.dp)
                 .clip(RoundedCornerShape(16.dp)),
             contentScale = ContentScale.Crop
 
@@ -134,14 +138,19 @@ fun EmailPasswordLogin(
             maxLines = 1,
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
-//        Button(onClick = {
-//            authViewModel.login(email,password)
-//        },
-//            enabled = authSate.value != AuthState.Loading)  {
-//            Text(text = "Login")
-//        }
+        Button(onClick = {
+            authViewModels.login(email,password)
+        },
+            enabled = authSate.value != AuthState.Loading)  {
+            Text(text = "Login",
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Cursive,
+                fontSize = 22.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.size(120.dp,30.dp))
+        }
 
         Spacer(modifier = Modifier.height(10.dp))
 
