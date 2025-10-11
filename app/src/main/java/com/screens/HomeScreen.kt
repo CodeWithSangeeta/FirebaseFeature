@@ -62,12 +62,9 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(40.dp))
 
-
-
-
         Button(onClick = {
             authViewModels.signout()
-           // navController.navigate(routes.EmailPasswordLogin)
+            navController.navigate(routes.EmailPasswordLogin)
         }){
             Text(text = "Sign Out",
                 modifier= Modifier.fillMaxWidth(),
