@@ -57,14 +57,14 @@ fun EmailPasswordLogin(
     var password by remember { mutableStateOf("") }
 
 
-    val authSate = authViewModels.authState.observeAsState()
+    val authState = authViewModels.authState.observeAsState()
     val context = LocalContext.current
 
-    LaunchedEffect(authSate.value){
-        when(authSate.value){
+    LaunchedEffect(authState.value){
+        when(authState.value){
             is AuthState.Authenticated ->  navController.navigate(routes.HomeScreen)
             is AuthState.Error -> Toast.makeText(context,
-                (authSate.value as AuthState.Error).message, Toast.LENGTH_SHORT).show()
+                (authState.value as AuthState.Error).message, Toast.LENGTH_SHORT).show()
             else -> Unit
         }
     }
@@ -72,8 +72,7 @@ fun EmailPasswordLogin(
 
     Column(
         modifier = Modifier.fillMaxSize()
-            .padding(32.dp),
-        //verticalArrangement = Arrangement.Center,
+        .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Email & Password Login",
@@ -81,9 +80,7 @@ fun EmailPasswordLogin(
             textAlign = TextAlign.Start,
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily.Cursive,
-
         )
-
 
         Spacer(modifier = Modifier.height(40.dp))
 
@@ -94,7 +91,6 @@ fun EmailPasswordLogin(
                 .size(300.dp)
                 .clip(RoundedCornerShape(16.dp)),
             contentScale = ContentScale.Crop
-
         )
 
         Spacer(modifier = Modifier.height(40.dp))
@@ -143,7 +139,7 @@ fun EmailPasswordLogin(
         Button(onClick = {
             authViewModels.login(email,password)
         },
-            enabled = authSate.value != AuthState.Loading)  {
+            enabled = authState.value != AuthState.Loading)  {
             Text(text = "Login",
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Cursive,

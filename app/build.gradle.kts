@@ -68,4 +68,7 @@ dependencies {
    //  Firebase Authentication (Email/Password)
     implementation(libs.firebase.auth)
 
+    //Firebase Authentication (Google Sign In)
+    implementation(libs.play.services.auth)
+
 }

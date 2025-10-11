@@ -109,7 +109,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
-            navController.navigate(routes.GoogleSignIn)
+            navController.navigate(routes.GoogleSignInFunction)
         }){
             Text(text = "Google Sign In",
                 modifier= Modifier.fillMaxWidth(),
