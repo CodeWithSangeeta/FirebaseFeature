@@ -106,7 +106,7 @@ fun WelcomeScreen(
         }
 
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
         Button(onClick = {
             navController.navigate(routes.GoogleSignInFunction)
@@ -119,7 +119,7 @@ fun WelcomeScreen(
                 fontSize = 22.sp)
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
         Button(onClick = {
             navController.navigate(routes.OtpVerification)
