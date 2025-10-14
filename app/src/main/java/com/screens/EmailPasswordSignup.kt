@@ -100,6 +100,7 @@ fun EmailPasswordSignup(modifier: Modifier, navController: NavController, authVi
                 Icon(
                     imageVector = Icons.Default.Email,
                     contentDescription = "Email",
+                    modifier = Modifier.size(20.dp)
                 )
             },
             shape = RoundedCornerShape(12.dp),
@@ -119,8 +120,9 @@ fun EmailPasswordSignup(modifier: Modifier, navController: NavController, authVi
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.Email,
+                    painter = painterResource(id = R.drawable.password_icon),
                     contentDescription = "Email",
+                    modifier = Modifier.size(20.dp)
                 )
             },
             shape = RoundedCornerShape(12.dp),

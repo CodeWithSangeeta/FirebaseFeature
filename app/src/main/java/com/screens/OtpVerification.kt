@@ -55,8 +55,14 @@ fun OtpVerification(
 ) {
     var phoneNo by remember { mutableStateOf("") }
     var otp by remember { mutableStateOf("") }
+
+    //LiveData observed from ViewModel, to know if user is authenticated or not.
     val authState by authViewModels.authState.observeAsState()
+
+    //a StateFlow/LiveData boolean (from ViewModel) that tells whether the app is currently sending OTP — used to show the loading spinner.
     val isSendingOtp by authViewModels.isSendingOtp.collectAsState(initial = false)
+
+   // gets the current Activity or Context required by Firebase for verification UI (like CAPTCHA).
     var context = LocalContext.current
 
 
@@ -129,7 +135,7 @@ fun OtpVerification(
         Button(
             onClick = {
                 if (phoneNo.isNotEmpty()) {
-                    authViewModels.sendOtp(phoneNo, context as Activity)
+                    authViewModels.sendOtp("+91$phoneNo", context as Activity)
                 }
             },
             enabled = !isSendingOtp
@@ -149,8 +155,6 @@ fun OtpVerification(
                 )
             }
             }
-
-
 
 
 
@@ -188,29 +192,6 @@ fun OtpVerification(
                     fontSize = 22.sp
                 )
             }
-
-//         Spacer(modifier = Modifier.height(16.dp))
-//
-//            when (val state = authState) {
-//                is AuthState.Loading -> Text(
-//                    "Please wait...",
-//                    color = MaterialTheme.colorScheme.primary
-//                )
-//
-//                is AuthState.Authenticated -> {
-//                    LaunchedEffect(Unit) {
-//                        navController.navigate(routes.HomeScreen)
-//                    }
-//                }
-//
-//                is AuthState.Error -> Text(
-//                    "Error: ${state.message}",
-//                    color = MaterialTheme.colorScheme.error
-//                )
-//
-//                is AuthState.OtpSent -> Text("OTP Sent! Please check your messages.")
-//                else -> {}
-//            }
 
 
         }

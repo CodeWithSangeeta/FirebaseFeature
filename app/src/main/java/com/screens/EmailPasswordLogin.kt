@@ -105,6 +105,7 @@ fun EmailPasswordLogin(
                 Icon(
                     imageVector = Icons.Default.Email,
                     contentDescription = "Email",
+                    modifier = Modifier.size(20.dp)
                 )
             },
             shape = RoundedCornerShape(12.dp),
@@ -124,8 +125,9 @@ fun EmailPasswordLogin(
             },
             leadingIcon = {
                 Icon(
-                    imageVector = Icons.Default.Email,
+                    painter = painterResource(id = R.drawable.password_icon),
                     contentDescription = "Email",
+                    modifier = Modifier.size(20.dp)
                 )
             },
             shape = RoundedCornerShape(12.dp),

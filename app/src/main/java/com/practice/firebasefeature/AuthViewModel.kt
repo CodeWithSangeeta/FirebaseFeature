@@ -143,7 +143,7 @@ class AuthViewModel : ViewModel() {
 
         val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
-            override fun onVerificationCompleted(credential: com.google.firebase.auth.PhoneAuthCredential) {
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {  //com.google.firebase.auth.
                 _isSendingOtp.value = false
                 // Auto verification completed
                 signInWithPhoneAuthCredential(credential)
@@ -168,6 +168,7 @@ class AuthViewModel : ViewModel() {
                 _verificationId.value = verificationId
             }
         }
+
                 val options = PhoneAuthOptions.newBuilder(auth)
                     .setPhoneNumber(phoneNumber)
                     .setTimeout(60L, TimeUnit.SECONDS)
@@ -198,6 +199,7 @@ class AuthViewModel : ViewModel() {
                 if (task.isSuccessful) {
                     _authState.value = AuthState.Authenticated
                     _isAuthenticated.value = true
+                    _otpSent.value = false
                     Log.d("AuthViewModel", "signInWithCredential:success")
                 } else {
                     _authState.value = AuthState.Error(task.exception?.message ?: "Sign-in failed")
