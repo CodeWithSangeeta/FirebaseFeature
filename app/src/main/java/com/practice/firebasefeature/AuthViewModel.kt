@@ -101,6 +101,16 @@ class AuthViewModel : ViewModel() {
 
     fun signout(){
         auth.signOut()
+        // 2️⃣ Sign out from Google
+        googleSignInClient.signOut().addOnCompleteListener {
+            Log.d("SignOut", "Google Sign-out completed")
+        }
+
+        // Optional: revoke access (forces account selection next time)
+        googleSignInClient.revokeAccess().addOnCompleteListener {
+            Log.d("SignOut", "Google access revoked")
+        }
+
         _authState.value = AuthState.Unauthenticated
     }
 

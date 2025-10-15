@@ -135,7 +135,7 @@ fun OtpVerification(
         Button(
             onClick = {
                 if (phoneNo.isNotEmpty()) {
-                    authViewModels.sendOtp("+91$phoneNo", context as Activity)
+                    authViewModels.sendOtp(phoneNo, context as Activity)
                 }
             },
             enabled = !isSendingOtp
