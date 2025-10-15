@@ -25,7 +25,7 @@ It focuses on the **backend logic** of authentication while keeping the UI minim
 
 2️⃣ **Email & Password Screen**
    - Fields: Email and Password
-   - Buttons: Register, Login
+   - Buttons: SignUp, Login
    - On success → “Email Login Successful ✅” screen
 
 3️⃣ **Google Sign-In Screen**
@@ -53,4 +53,4 @@ It focuses on the **backend logic** of authentication while keeping the UI minim
 
 1. **Clone this repository**
    ```bash
-   
+   https://github.com/CodeWithSangeeta/FirebaseFeature
